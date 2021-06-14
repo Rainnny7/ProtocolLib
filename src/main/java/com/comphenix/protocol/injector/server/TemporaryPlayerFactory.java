@@ -161,9 +161,9 @@ public class TemporaryPlayerFactory {
 				else if (methodName.equals("getName"))
 					return "UNKNOWN[" + injector.getAddress() + "]";
 
-				// Ignore all other methods
-				throw new UnsupportedOperationException(
-						"The method " + method.getName() + " is not supported for temporary players.");
+				// If the method is not supported for a temporary player we wanna return null to prevent errors
+				// caused by other plugins
+				return null;
 			}
 		});
 
